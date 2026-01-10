@@ -742,7 +742,7 @@ export default function Home() {
 
         <div>
           <p className="text-sm text-[#737373] dark:text-[#A3A3A3]">
-            © 2024 Shreejay Bhay. All rights reserved.
+            © 2024 Shree Jaybhay. All rights reserved.
           </p>
         </div>
       </motion.div>
