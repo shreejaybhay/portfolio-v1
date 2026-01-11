@@ -102,7 +102,7 @@ export default function Home() {
             <div className=" w-full">
               <div>
                 <Link
-                  href="https://mum.digitaluniversity.ac/"
+                  href="https://roadmap.sh/full-stack"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 group"
@@ -130,7 +130,7 @@ export default function Home() {
           <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2 mt-8.5">Work Experience</h1>
 
           <div className="flex gap-2 items-start mb-3">
-            <Link href="https://craftlab.ai/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 flex-shrink-0">
+            <Link href="https://craftlab.ai/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 shrink-0">
               <Image
                 src="https://media.licdn.com/dms/image/v2/D4D0BAQHx5oB2XiQATA/company-logo_200_200/company-logo_200_200/0/1719256960573/craftlabai_logo?e=1769644800&v=beta&t=2Hv_WxYZfQsoA2v8IyjUUBLEjzAoekfg9tdOspnKBLo"
                 alt="Craftlab Logo"
@@ -175,7 +175,7 @@ export default function Home() {
               href="https://github.com/shreejaybhay"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 flex-shrink-0"
+              className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 shrink-0"
             >
               <Image
                 src="https://i.postimg.cc/C1bP8Jgx/original-cd940b45bbed325d172547e4181e59b2.webp"
@@ -617,6 +617,7 @@ export default function Home() {
             </Card>
           </div>
         </div>
+
         <div className="mb-8.5">
           <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2 mt-8.5">Get in Touch</h1>
           <p className="dark:text-[#A3A3A3] text-[#737373] text-sm mb-6">I&apos;m always open to discussing new opportunities, collaborations, or just having a chat about technology and development.</p>
