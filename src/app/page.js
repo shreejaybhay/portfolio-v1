@@ -3,11 +3,12 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, ExternalLink, Github } from "lucide-react";
+import { ChevronRight, ExternalLink, Github, Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import ProjectCard, { projectsData } from "@/components/project-card";
 
 
 export default function Home() {
@@ -25,7 +26,31 @@ export default function Home() {
             <h1 className="font-bold font-sans text-3xl md:text-4xl lg:text-5xl text-foreground">Hi, I&apos;m Shree <span></span></h1>
             <p className="font-sans text-sm md:text-base max-w-full md:max-w-125 text-foreground">I build clean, scalable web apps focused on performance, design, and real-world usability simple, fast, reliable.</p>
           </div>
-          <div className="order-1 md:order-2 self-center md:self-auto">
+
+          <div className="group order-1 md:order-2 self-center md:self-auto border border-dashed border-input hover:border-ring/80 p-1 relative rounded-full hover:rounded-none transition-transform duration-300">
+            {/* Plus corners */}
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              {/* Top Left */}
+              <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-ring">
+                <Plus />
+              </div>
+
+              {/* Top Right */}
+              <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-ring">
+                <Plus />
+              </div>
+
+              {/* Bottom Left */}
+              <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-ring">
+                <Plus />
+              </div>
+
+              {/* Bottom Right */}
+              <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-ring">
+                <Plus />
+              </div>
+            </div>
+
             <Image
               src="https://avatars.githubusercontent.com/u/155870646?s=400&u=870734441b2d80a665a2f734245ba815c0a5b871&v=4"
               alt="Shree's Avatar"
@@ -36,7 +61,7 @@ export default function Home() {
                    grayscale
                    md:w-27.5 md:h-27.5
                    transition-all duration-300 ease-in-out
-                  md:hover:grayscale-0"
+                   md:hover:grayscale-0"
             />
           </div>
 
@@ -249,385 +274,9 @@ export default function Home() {
           <p className="dark:text-[#A3A3A3] text-[#737373] text-sm mb-6">I&apos;ve worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-            {/* Jammify Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/hjFtyyWv/Screenshot-2026-01-10-063348.jpg"
-                  alt="Jammify Project Preview"
-                  fill
-                  className=" 
-                         h-full w-full
-                         object-cover object-top
-                         grayscale
-                         transition-all duration-500 ease-out
-                         group-hover:scale-[1.02]
-                         group-hover:grayscale-0"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">Jammify</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  A modern music streaming experience with clean UI, smooth animations, and fast search using the JioSaavn API.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://jammify-music.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/jammify"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-            {/* Second Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/Mp9g6hSJ/Screenshot-2026-01-14-144138.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">Smart Notes</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  NoteFlow is a modern note-taking app with a clean UI and real-time collaboration built using Next.js 15.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://smartnotes-me.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/Smart-Notes"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 3rd Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/Pr4xKQ5L/Screenshot-2026-01-10-072819.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">ConnectAid</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  ConnectAid is a community platform with secure auth, role-based access, and admin approvals built on Next.js 15.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://connectaid-shree.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/ConnectAid"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 4th Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/7hZc440p/Screenshot-2026-01-10-073536.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">Snippets</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  CodeSnippets is a personal code library for storing, organizing, and sharing snippets, built with Next.js 15+.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://snippets-shree.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/snippets"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-            {/* 5th Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/YqmRWjrP/Screenshot-2026-01-10-073958.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">Streamvault</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  StreamVault is a modern entertainment platform for browsing movies, shows, and anime, built with Next.js.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://streamvault-ten.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/streamvault"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 6th Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/rFLj5MK7/Screenshot-2026-01-10-074416.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">luminouslabs</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  LuminousLabs is a clean and modern UI/UX website built with Next.js and Tailwind CSS, focused on responsive and intuitive design.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://luminouslabs.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/luminouslabs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 7th Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/5ypXHBHp/Screenshot-2026-01-10-075054.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">LaundryHub</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  Laundry Management System is a web app built with Next.js for managing laundry orders, payments, and admin operations.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://laundryhub-plum.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/laundry-management"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* 8th Project */}
-            <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
-              <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
-                <Image
-                  src="https://i.postimg.cc/rFx8pynF/Screenshot-2026-01-14-143955.jpg"
-                  alt="Smart Notes Project"
-                  fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
-                />
-              </div>
-
-              <CardContent className="p-3 pb-2">
-                <h3 className="font-semibold text-base text-foreground mb-2">Campus Link</h3>
-                <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  A secure Next.js platform for real-time attendance tracking via student QR scans and admin session management.
-                </p>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">MongoDB</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Tailwind</Badge>
-                  <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">shadcn/ui</Badge>
-                </div>
-
-                <div className="flex gap-2">
-                  <Link
-                    href="https://academic-v1.vercel.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-200"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    Website
-                  </Link>
-                  <Link
-                    href="https://github.com/shreejaybhay/academicV1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 group/btn py-2 px-3 text-sm font-medium text-[#737373] dark:text-[#A3A3A3] hover:text-foreground border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200"
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                    Code
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
+            {projectsData.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
           </div>
         </div>
 
@@ -751,6 +400,36 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            {/* medium blogs */}
+            <div className="flex gap-2 items-start">
+              <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
+                <svg className="w-5 h-5 text-foreground" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                </svg>
+              </div>
+              <div className="flex items-center justify-between w-full">
+                <div>
+                  <Link
+                    href="https://medium.com/@shreejaybhay"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 group"
+                  >
+                    <h2 className="font-semibold text-sm">Medium</h2>
+                    <ChevronRight
+                      className="w-3.5 h-3.5
+                    opacity-0 -translate-x-1
+                    group-hover:opacity-100 group-hover:translate-x-0
+                    transition-all duration-300"
+                    />
+                  </Link>
+                  <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
+                    Read my technical articles and insights
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
