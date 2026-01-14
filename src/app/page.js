@@ -305,7 +305,7 @@ export default function Home() {
             <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
               <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
                 <Image
-                  src="https://i.postimg.cc/rwKhgg9X/Screenshot-2026-01-10-071647.jpg"
+                  src="https://i.postimg.cc/Mp9g6hSJ/Screenshot-2026-01-14-144138.jpg"
                   alt="Smart Notes Project"
                   fill
                   className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
@@ -586,7 +586,7 @@ export default function Home() {
             <Card className="group overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 shadow-none p-0 rounded-none">
               <div className="relative h-40 w-full overflow-hidden bg-neutral-50 dark:bg-neutral-900">
                 <Image
-                  src="https://i.postimg.cc/Xqgspzc9/Screenshot-2026-01-10-080644.jpg"
+                  src="https://i.postimg.cc/rFx8pynF/Screenshot-2026-01-14-143955.jpg"
                   alt="Smart Notes Project"
                   fill
                   className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
@@ -596,7 +596,8 @@ export default function Home() {
               <CardContent className="p-3 pb-2">
                 <h3 className="font-semibold text-base text-foreground mb-2">Campus Link</h3>
                 <p className="text-sm text-[#737373] dark:text-[#A3A3A3] leading-relaxed mb-3">
-                  QR Code Attendance System is a Next.js app where students mark attendance via QR codes and admins manage sessions securely.              </p>
+                  A secure Next.js platform for real-time attendance tracking via student QR scans and admin session management.
+                </p>
 
                 <div className="flex flex-wrap gap-1 mb-3">
                   <Badge className="rounded-none text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0">Next.js</Badge>
