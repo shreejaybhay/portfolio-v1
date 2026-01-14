@@ -27,13 +27,19 @@ export default function Home() {
           </div>
           <div className="order-1 md:order-2 self-center md:self-auto">
             <Image
-              src='https://avatars.githubusercontent.com/u/155870646?s=400&u=870734441b2d80a665a2f734245ba815c0a5b871&v=4'
+              src="https://avatars.githubusercontent.com/u/155870646?s=400&u=870734441b2d80a665a2f734245ba815c0a5b871&v=4"
               alt="Shree's Avatar"
               width={80}
               height={80}
-              className="rounded-full grayscale md:w-[110px] md:h-[110px]"
+              className="
+                   rounded-full
+                   grayscale
+                   md:w-27.5 md:h-27.5
+                   transition-all duration-300 ease-in-out
+                  md:hover:grayscale-0"
             />
           </div>
+
         </div>
 
         <div className="mb-8.5">
@@ -250,7 +256,13 @@ export default function Home() {
                   src="https://i.postimg.cc/hjFtyyWv/Screenshot-2026-01-10-063348.jpg"
                   alt="Jammify Project Preview"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className=" 
+                         h-full w-full
+                         object-cover object-top
+                         grayscale
+                         transition-all duration-500 ease-out
+                         group-hover:scale-[1.02]
+                         group-hover:grayscale-0"
                 />
               </div>
 
@@ -296,7 +308,7 @@ export default function Home() {
                   src="https://i.postimg.cc/rwKhgg9X/Screenshot-2026-01-10-071647.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
@@ -343,7 +355,7 @@ export default function Home() {
                   src="https://i.postimg.cc/Pr4xKQ5L/Screenshot-2026-01-10-072819.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
@@ -390,7 +402,7 @@ export default function Home() {
                   src="https://i.postimg.cc/7hZc440p/Screenshot-2026-01-10-073536.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
@@ -436,7 +448,7 @@ export default function Home() {
                   src="https://i.postimg.cc/YqmRWjrP/Screenshot-2026-01-10-073958.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
@@ -483,7 +495,7 @@ export default function Home() {
                   src="https://i.postimg.cc/rFLj5MK7/Screenshot-2026-01-10-074416.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
@@ -530,7 +542,7 @@ export default function Home() {
                   src="https://i.postimg.cc/5ypXHBHp/Screenshot-2026-01-10-075054.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
@@ -577,7 +589,7 @@ export default function Home() {
                   src="https://i.postimg.cc/Xqgspzc9/Screenshot-2026-01-10-080644.jpg"
                   alt="Smart Notes Project"
                   fill
-                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500 grayscale hover:grayscale-0"
+                  className="h-full w-full object-cover object-top group-hover:scale-[1.02] transition-all duration-500 grayscale group-hover:grayscale-0 ease-out"
                 />
               </div>
 
