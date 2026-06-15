@@ -9,73 +9,94 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import ProjectCard, { projectsData } from "@/components/project-card";
+import { StackIcons } from "@/components/stack-icons";
+import GithubCalendar from "@/components/github-calendar";
 
+const skillsItems = [
+  { name: "JavaScript", icon: "javascript", colorClass: "text-[#F7DF1E]" },
+  { name: "TypeScript", icon: "typescript", colorClass: "text-[#3178C6]" },
+  { name: "React", icon: "react", colorClass: "text-[#61DAFB]" },
+  { name: "Next.js", icon: "nextdotjs", colorClass: "text-foreground" },
+  { name: "Node.js", icon: "node", colorClass: "text-[#339933]" },
+  { name: "Express.js", icon: "express", colorClass: "text-foreground" },
+  { name: "MongoDB", icon: "mongodb", colorClass: "text-[#47A248]" },
+  { name: "Tailwind CSS", icon: "tailwind", colorClass: "text-[#38BDF8]" },
+  { name: "Shadcn UI", icon: "shadcnui", colorClass: "text-foreground" },
+  { name: "Git", icon: "git", colorClass: "text-[#F05032]" },
+  { name: "GitHub", icon: "github", colorClass: "text-foreground" },
+  { name: "Figma", icon: "figma", colorClass: "text-[#F24E1E]" },
+  { name: "Postman", icon: "postman", colorClass: "text-[#FF6C37]" },
+];
 
 export default function Home() {
   return (
     <>
       <motion.div
-        className="max-w-2xl mx-auto mt-8 md:mt-16 lg:mt-23.5 p-4 md:p-6"
+        className="max-w-2xl mx-auto mt-8 md:mt-16 lg:mt-23.5 border-x border-border bg-background"
         initial={{ opacity: 0, filter: "blur(10px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* hero */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-2 mb-6 md:mb-8.5">
-          <div className="flex gap-1 flex-col order-2 md:order-1">
-            <h1 className="font-bold font-sans text-3xl md:text-4xl lg:text-5xl text-foreground">Hi, I&apos;m Shree <span></span></h1>
-            <p className="font-sans text-sm md:text-base max-w-full md:max-w-125 text-foreground">I build clean, scalable web apps focused on performance, design, and real-world usability simple, fast, reliable.</p>
-          </div>
-
-          <div className="group order-1 md:order-2 self-center md:self-auto border border-dashed border-input hover:border-ring/80 p-1 relative rounded-full hover:rounded-none transition-transform duration-300">
-            {/* Plus corners */}
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              {/* Top Left */}
-              <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-ring">
-                <Plus />
-              </div>
-
-              {/* Top Right */}
-              <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-ring">
-                <Plus />
-              </div>
-
-              {/* Bottom Left */}
-              <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-ring">
-                <Plus />
-              </div>
-
-              {/* Bottom Right */}
-              <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-ring">
-                <Plus />
-              </div>
+        {/* hero & about */}
+        <div className="p-4 md:p-6 flex flex-col gap-6">
+          {/* hero */}
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-2 mb-6">
+            <div className="flex gap-1 flex-col order-2 md:order-1">
+              <h1 className="font-bold font-sans text-3xl md:text-4xl lg:text-5xl text-foreground">Hi, I&apos;m Shree <span></span></h1>
+              <p className="font-sans text-sm md:text-base max-w-full md:max-w-125 text-foreground">I build clean, scalable web apps focused on performance, design, and real-world usability simple, fast, reliable.</p>
             </div>
 
-            <Image
-              src="https://avatars.githubusercontent.com/u/155870646?s=400&u=870734441b2d80a665a2f734245ba815c0a5b871&v=4"
-              alt="Shree's Avatar"
-              width={80}
-              height={80}
-              className="
-                   rounded-full
-                   grayscale
-                   md:w-27.5 md:h-27.5
-                   transition-all duration-300 ease-in-out
-                   md:hover:grayscale-0"
-            />
+            <div className="group order-1 md:order-2 self-center md:self-auto border border-dashed border-input hover:border-ring/80 p-1 relative rounded-full hover:rounded-none transition-transform duration-300">
+              {/* Plus corners */}
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* Top Left */}
+                <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-ring">
+                  <Plus />
+                </div>
+
+                {/* Top Right */}
+                <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-ring">
+                  <Plus />
+                </div>
+
+                {/* Bottom Left */}
+                <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-ring">
+                  <Plus />
+                </div>
+
+                {/* Bottom Right */}
+                <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-ring">
+                  <Plus />
+                </div>
+              </div>
+
+              <Image
+                src="https://avatars.githubusercontent.com/u/155870646?s=400&u=870734441b2d80a665a2f734245ba815c0a5b871&v=4"
+                alt="Shree's Avatar"
+                width={80}
+                height={80}
+                className="
+                     rounded-full
+                     grayscale
+                     md:w-27.5 md:h-27.5
+                     transition-all duration-300 ease-in-out
+                     md:hover:grayscale-0"
+              />
+            </div>
           </div>
 
-        </div>
+          <div>
+            <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2">About</h1>
+            <p className="dark:text-[#A3A3A3] text-[#737373] text-sm">I&apos;m a developer who enjoys turning ideas into well-crafted digital products.
+              I care about clean code, thoughtful UI, and systems that scale without complexity.
 
-        <div className="mb-8.5">
-          <h1 className="text-xl font-bold font-sans text-[--foreground]">About</h1>
-          <p className="dark:text-[#A3A3A3] text-[#737373]  text-sm">I&apos;m a developer who enjoys turning ideas into well-crafted digital products.
-            I care about clean code, thoughtful UI, and systems that scale without complexity.
-
-            Most of my work revolves around full-stack web development — from designing APIs to building smooth user interfaces. I prefer minimal solutions that solve real problems.</p>
+              Most of my work revolves around full-stack web development — from designing APIs to building smooth user interfaces. I prefer minimal solutions that solve real problems.</p>
+          </div>
         </div>
-        <div>
-          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2">Education</h1>
+        <div className="striped-divider" />
+
+        <div className="p-4 md:p-6">
+          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-4">Education</h1>
 
           <div className="flex gap-2 items-start mb-3">
             <Link href="https://mum.digitaluniversity.ac/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-white">
@@ -157,8 +178,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
-          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2 mt-8.5">Work Experience</h1>
+        <div className="striped-divider" />
+
+        <div className="p-4 md:p-6">
+          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-4">Work Experience</h1>
 
           <div className="flex gap-2 items-start mb-3">
             <Link href="https://craftlab.ai/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 shrink-0">
@@ -249,28 +272,36 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
-          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2 mt-8.5">Skills</h1>
+        <div className="striped-divider" />
 
-          <div>
-            <Badge className="mr-2 mb-2 rounded-none">JavaScript</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">TypeScript</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">React</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Next.js</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Node.js</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Express.js</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">MongoDB</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Tailwind CSS</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Shadcn UI</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Git</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">GitHub</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Figma</Badge>
-            <Badge className="mr-2 mb-2 rounded-none">Postman</Badge>
+        <div className="p-4 md:p-6">
+          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-4">Skills</h1>
+          <div className="flex flex-wrap gap-2.5">
+            {skillsItems.map((item) => {
+              const Icon = StackIcons[item.icon];
+              return (
+                <div
+                  key={item.name}
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 text-sm text-neutral-700 dark:text-neutral-300 transition-all duration-200 hover:scale-[1.02] hover:bg-neutral-100 dark:hover:bg-neutral-800/60 hover:border-neutral-300 dark:hover:border-neutral-700"
+                >
+                  {Icon && <Icon className={`w-4.5 h-4.5 ${item.colorClass || ""}`} />}
+                  <span className="font-sans font-medium">{item.name}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        <div className="mb-8.5">
-          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2 mt-8.5">My Projects</h1>
+        <div className="striped-divider" />
+
+        <div className="p-4 md:p-6">
+          <GithubCalendar />
+        </div>
+
+        <div className="striped-divider" />
+
+        <div className="p-4 md:p-6">
+          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2">My Projects</h1>
           <p className="dark:text-[#A3A3A3] text-[#737373] text-sm mb-6">I&apos;ve worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites.</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
@@ -280,163 +311,167 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mb-8.5">
-          <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2 mt-8.5">Get in Touch</h1>
-          <p className="dark:text-[#A3A3A3] text-[#737373] text-sm mb-6">I&apos;m always open to discussing new opportunities, collaborations, or just having a chat about technology and development.</p>
+        <div className="striped-divider" />
 
-          <div className="space-y-4">
-            {/* Email */}
-            <div className="flex gap-2 items-start">
-              <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
-                <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <Link
-                    href="mailto:shreejayb2004@gmail.com"
-                    className="flex items-center gap-1 group"
-                  >
-                    <h2 className="font-semibold text-sm">shreejaybhay26@gmail.com</h2>
-                    <ChevronRight
-                      className="w-3.5 h-3.5
-                    opacity-0 -translate-x-1
-                    group-hover:opacity-100 group-hover:translate-x-0
-                    transition-all duration-300"
-                    />
-                  </Link>
-                  <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
-                    Drop me a line for any inquiries
-                  </p>
+        <div className="p-4 md:p-6 flex flex-col gap-6">
+          <div>
+            <h1 className="text-xl font-bold font-sans text-[--foreground] mb-4">Get in Touch</h1>
+            <p className="dark:text-[#A3A3A3] text-[#737373] text-sm mb-6">I&apos;m always open to discussing new opportunities, collaborations, or just having a chat about technology and development.</p>
+
+            <div className="space-y-4">
+              {/* Email */}
+              <div className="flex gap-2 items-start">
+                <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="flex items-center justify-between w-full">
+                  <div>
+                    <Link
+                      href="mailto:shreejayb2004@gmail.com"
+                      className="flex items-center gap-1 group"
+                    >
+                      <h2 className="font-semibold text-sm">shreejaybhay26@gmail.com</h2>
+                      <ChevronRight
+                        className="w-3.5 h-3.5
+                      opacity-0 -translate-x-1
+                      group-hover:opacity-100 group-hover:translate-x-0
+                      transition-all duration-300"
+                      />
+                    </Link>
+                    <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
+                      Drop me a line for any inquiries
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* LinkedIn */}
-            <div className="flex gap-2 items-start">
-              <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
-                <svg className="w-5 h-5 text-foreground" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <Link
-                    href="https://www.linkedin.com/in/shree-jaybhay-084014316/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 group"
-                  >
-                    <h2 className="font-semibold text-sm">LinkedIn</h2>
-                    <ChevronRight
-                      className="w-3.5 h-3.5
-                    opacity-0 -translate-x-1
-                    group-hover:opacity-100 group-hover:translate-x-0
-                    transition-all duration-300"
-                    />
-                  </Link>
-                  <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
-                    Let&apos;s connect professionally
-                  </p>
+              {/* LinkedIn */}
+              <div className="flex gap-2 items-start">
+                <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-foreground" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </div>
+                <div className="flex items-center justify-between w-full">
+                  <div>
+                    <Link
+                      href="https://www.linkedin.com/in/shree-jaybhay-084014316/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 group"
+                    >
+                      <h2 className="font-semibold text-sm">LinkedIn</h2>
+                      <ChevronRight
+                        className="w-3.5 h-3.5
+                      opacity-0 -translate-x-1
+                      group-hover:opacity-100 group-hover:translate-x-0
+                      transition-all duration-300"
+                      />
+                    </Link>
+                    <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
+                      Let&apos;s connect professionally
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* GitHub */}
-            <div className="flex gap-2 items-start">
-              <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
-                <Github className="w-5 h-5 text-foreground" />
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <Link
-                    href="https://github.com/shreejaybhay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 group"
-                  >
-                    <h2 className="font-semibold text-sm">GitHub</h2>
-                    <ChevronRight
-                      className="w-3.5 h-3.5
-                    opacity-0 -translate-x-1
-                    group-hover:opacity-100 group-hover:translate-x-0
-                    transition-all duration-300"
-                    />
-                  </Link>
-                  <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
-                    Check out my code and contributions
-                  </p>
+              {/* GitHub */}
+              <div className="flex gap-2 items-start">
+                <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
+                  <Github className="w-5 h-5 text-foreground" />
+                </div>
+                <div className="flex items-center justify-between w-full">
+                  <div>
+                    <Link
+                      href="https://github.com/shreejaybhay"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 group"
+                    >
+                      <h2 className="font-semibold text-sm">GitHub</h2>
+                      <ChevronRight
+                        className="w-3.5 h-3.5
+                      opacity-0 -translate-x-1
+                      group-hover:opacity-100 group-hover:translate-x-0
+                      transition-all duration-300"
+                      />
+                    </Link>
+                    <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
+                      Check out my code and contributions
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Twitter/X */}
-            <div className="flex gap-2 items-start">
-              <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
-                <svg className="w-4 h-4 text-foreground" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <Link
-                    href="https://twitter.com/shreejaybhay26"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 group"
-                  >
-                    <h2 className="font-semibold text-sm">Twitter</h2>
-                    <ChevronRight
-                      className="w-3.5 h-3.5
-                    opacity-0 -translate-x-1
-                    group-hover:opacity-100 group-hover:translate-x-0
-                    transition-all duration-300"
-                    />
-                  </Link>
-                  <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
-                    Follow me for tech updates and thoughts
-                  </p>
+              {/* Twitter/X */}
+              <div className="flex gap-2 items-start">
+                <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-foreground" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </div>
+                <div className="flex items-center justify-between w-full">
+                  <div>
+                    <Link
+                      href="https://twitter.com/shreejaybhay26"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 group"
+                    >
+                      <h2 className="font-semibold text-sm">Twitter</h2>
+                      <ChevronRight
+                        className="w-3.5 h-3.5
+                      opacity-0 -translate-x-1
+                      group-hover:opacity-100 group-hover:translate-x-0
+                      transition-all duration-300"
+                      />
+                    </Link>
+                    <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
+                      Follow me for tech updates and thoughts
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* medium blogs */}
-            <div className="flex gap-2 items-start">
-              <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
-                <svg className="w-5 h-5 text-foreground" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-                </svg>
-              </div>
-              <div className="flex items-center justify-between w-full">
-                <div>
-                  <Link
-                    href="https://medium.com/@shreejaybhay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 group"
-                  >
-                    <h2 className="font-semibold text-sm">Medium</h2>
-                    <ChevronRight
-                      className="w-3.5 h-3.5
-                    opacity-0 -translate-x-1
-                    group-hover:opacity-100 group-hover:translate-x-0
-                    transition-all duration-300"
-                    />
-                  </Link>
-                  <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
-                    Read my technical articles and insights
-                  </p>
+              {/* medium blogs */}
+              <div className="flex gap-2 items-start">
+                <div className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-foreground" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                  </svg>
+                </div>
+                <div className="flex items-center justify-between w-full">
+                  <div>
+                    <Link
+                      href="https://medium.com/@shreejaybhay"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 group"
+                    >
+                      <h2 className="font-semibold text-sm">Medium</h2>
+                      <ChevronRight
+                        className="w-3.5 h-3.5
+                      opacity-0 -translate-x-1
+                      group-hover:opacity-100 group-hover:translate-x-0
+                      transition-all duration-300"
+                      />
+                    </Link>
+                    <p className="text-xs text-[#737373] dark:text-[#A3A3A3]">
+                      Read my technical articles and insights
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
+            </div>
           </div>
-        </div>
 
-        <div>
-          <p className="text-sm text-[#737373] dark:text-[#A3A3A3]">
-            © 2024 Shree Jaybhay. All rights reserved.
-          </p>
+          <div className="pt-4 border-t border-border">
+            <p className="text-sm text-[#737373] dark:text-[#A3A3A3]">
+              © 2024 Shree Jaybhay. All rights reserved.
+            </p>
+          </div>
         </div>
       </motion.div>
 
