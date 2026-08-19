@@ -186,7 +186,7 @@ export default function Home() {
           <div className="flex gap-2 items-start mb-3">
             <Link href="https://craftlab.ai/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 shrink-0">
               <Image
-                src="https://media.licdn.com/dms/image/v2/D4D0BAQHx5oB2XiQATA/company-logo_200_200/company-logo_200_200/0/1719256960573/craftlabai_logo?e=1769644800&v=beta&t=2Hv_WxYZfQsoA2v8IyjUUBLEjzAoekfg9tdOspnKBLo"
+                src="https://i.postimg.cc/dVMqWcQF/craftlabai-logo.jpg"
                 alt="Craftlab Logo"
                 fill
                 sizes="47px"
