@@ -120,7 +120,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 
@@ -134,10 +134,10 @@ html {
   scrollbar-width: none;
 }
 
-/* Alternative: Make scrollbar invisible but still functional */
-body {
+html, body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  overflow-x: hidden;
 }
 
 .striped-divider {

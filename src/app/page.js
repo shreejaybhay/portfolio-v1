@@ -81,12 +81,12 @@ export default function Home() {
               {/* Right: Name + Subtitle as bordered rows */}
               <div className="flex flex-col flex-1 border-t border-border">
                 <div className="flex items-center px-4 py-4 border-b border-border">
-                  <h1 className="font-bold text-[28px] md:text-[36px] text-foreground tracking-tight leading-none" style={{ fontFamily: 'var(--font-sora)' }}>Shree Jaybhay</h1>
+                  <h1 className="font-bold text-[22px] sm:text-[28px] md:text-[36px] text-foreground tracking-tight leading-none" style={{ fontFamily: 'var(--font-sora)' }}>Shree Jaybhay</h1>
                   <BadgeCheck className="w-[22px] h-[22px] fill-foreground text-background ml-2.5" />
                 </div>
-                <div className="flex items-center px-4 py-3">
+                <div className="flex items-center px-4 py-3 overflow-hidden w-full">
                   <TextLoop
-                    className="font-mono text-[13px] md:text-[14px] text-muted-foreground"
+                    className="font-mono text-[13px] md:text-[14px] text-muted-foreground truncate w-full block pr-[1px]"
                     interval={4}
                     transition={{
                       type: 'spring',
