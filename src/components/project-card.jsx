@@ -120,7 +120,7 @@ const ProjectCard = ({ project }) => {
         </div>
       </div>
 
-      <div className="relative h-40 w-full overflow-hidden bg-muted border-b border-dashed group-hover:border-ring/80 transition-all duration-300">
+      <div className="relative aspect-video w-full overflow-hidden bg-muted border-b border-dashed group-hover:border-ring/80 transition-all duration-300">
         <Image
           src={project.image}
           alt={`${project.title} Project Preview`}
