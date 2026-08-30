@@ -93,11 +93,11 @@ export default function GithubCalendar() {
   }
 
   const levelColors = {
-    0: "bg-[#ebedf0] dark:bg-[#161b22]",
-    1: "bg-[#9be9a8] dark:bg-[#0e4429]",
-    2: "bg-[#40c463] dark:bg-[#006d32]",
-    3: "bg-[#30a14e] dark:bg-[#26a641]",
-    4: "bg-[#216e39] dark:bg-[#39d353]",
+    0: "bg-neutral-100 dark:bg-neutral-800/60",
+    1: "bg-neutral-300 dark:bg-neutral-700",
+    2: "bg-neutral-400 dark:bg-neutral-500",
+    3: "bg-neutral-600 dark:bg-neutral-300",
+    4: "bg-neutral-900 dark:bg-neutral-100",
   };
 
   const dayLabels = ["", "Mon", "", "Wed", "", "Fri", ""];
@@ -195,11 +195,11 @@ export default function GithubCalendar() {
         <div className="flex items-center gap-1.5">
           <span>Less</span>
           <div className="flex gap-[3px]">
-            <div className="w-[11px] h-[11px] rounded-[2px] bg-[#ebedf0] dark:bg-[#161b22]" />
-            <div className="w-[11px] h-[11px] rounded-[2px] bg-[#9be9a8] dark:bg-[#0e4429]" />
-            <div className="w-[11px] h-[11px] rounded-[2px] bg-[#40c463] dark:bg-[#006d32]" />
-            <div className="w-[11px] h-[11px] rounded-[2px] bg-[#30a14e] dark:bg-[#26a641]" />
-            <div className="w-[11px] h-[11px] rounded-[2px] bg-[#216e39] dark:bg-[#39d353]" />
+            <div className="w-[11px] h-[11px] rounded-[2px] bg-neutral-100 dark:bg-neutral-800/60" />
+            <div className="w-[11px] h-[11px] rounded-[2px] bg-neutral-300 dark:bg-neutral-700" />
+            <div className="w-[11px] h-[11px] rounded-[2px] bg-neutral-400 dark:bg-neutral-500" />
+            <div className="w-[11px] h-[11px] rounded-[2px] bg-neutral-600 dark:bg-neutral-300" />
+            <div className="w-[11px] h-[11px] rounded-[2px] bg-neutral-900 dark:bg-neutral-100" />
           </div>
           <span>More</span>
         </div>

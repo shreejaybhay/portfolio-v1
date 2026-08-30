@@ -125,6 +125,7 @@ const ProjectCard = ({ project }) => {
           src={project.image}
           alt={`${project.title} Project Preview`}
           fill
+          unoptimized
           className="h-full w-full object-cover object-top grayscale transition-all duration-500 ease-out group-hover:scale-[1.02] group-hover:grayscale-0"
         />
       </div>

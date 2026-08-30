@@ -1,9 +1,13 @@
 "use client"
 
+import { useState, useEffect } from "react";
+import { TextLoop } from "@/components/core/text-loop";
+import { TextShimmer } from "@/components/core/text-shimmer";
+import { useTheme } from "next-themes";
 import { ModeToggle } from "@/components/mode-toggle";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, ExternalLink, Github, Plus } from "lucide-react";
+import { ChevronRight, ExternalLink, Github, Plus, BadgeCheck, Volume2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -13,84 +17,105 @@ import { StackIcons } from "@/components/stack-icons";
 import GithubCalendar from "@/components/github-calendar";
 
 const skillsItems = [
-  { name: "JavaScript", icon: "javascript", colorClass: "text-[#F7DF1E]" },
-  { name: "TypeScript", icon: "typescript", colorClass: "text-[#3178C6]" },
-  { name: "React", icon: "react", colorClass: "text-[#61DAFB]" },
+  { name: "JavaScript", icon: "javascript", colorClass: "text-foreground" },
+  { name: "TypeScript", icon: "typescript", colorClass: "text-foreground" },
+  { name: "React", icon: "react", colorClass: "text-foreground" },
   { name: "Next.js", icon: "nextdotjs", colorClass: "text-foreground" },
-  { name: "Node.js", icon: "node", colorClass: "text-[#339933]" },
+  { name: "Node.js", icon: "node", colorClass: "text-foreground" },
   { name: "Express.js", icon: "express", colorClass: "text-foreground" },
-  { name: "MongoDB", icon: "mongodb", colorClass: "text-[#47A248]" },
-  { name: "Tailwind CSS", icon: "tailwind", colorClass: "text-[#38BDF8]" },
+  { name: "MongoDB", icon: "mongodb", colorClass: "text-foreground" },
+  { name: "Tailwind CSS", icon: "tailwind", colorClass: "text-foreground" },
   { name: "Shadcn UI", icon: "shadcnui", colorClass: "text-foreground" },
-  { name: "Git", icon: "git", colorClass: "text-[#F05032]" },
+  { name: "Git", icon: "git", colorClass: "text-foreground" },
   { name: "GitHub", icon: "github", colorClass: "text-foreground" },
-  { name: "Figma", icon: "figma", colorClass: "text-[#F24E1E]" },
-  { name: "Postman", icon: "postman", colorClass: "text-[#FF6C37]" },
+  { name: "Figma", icon: "figma", colorClass: "text-foreground" },
+  { name: "Postman", icon: "postman", colorClass: "text-foreground" },
 ];
 
 export default function Home() {
+  const [isNightImage, setIsNightImage] = useState(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    setIsNightImage(resolvedTheme === "dark");
+  }, [resolvedTheme]);
+
+  const toggleImage = () => {
+    setIsNightImage((prev) => !prev);
+    try {
+      const audio = new Audio('/switch-button.mp3');
+      audio.play();
+    } catch (e) {
+      console.log("Audio not supported");
+    }
+  };
+
   return (
     <>
       <motion.div
-        className="max-w-2xl mx-auto mt-8 md:mt-16 lg:mt-23.5 border-x border-border bg-background"
+        className="max-w-3xl mx-auto mt-8 md:mt-16 lg:mt-23.5 border-x border-border bg-background"
         initial={{ opacity: 0, filter: "blur(10px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         {/* hero & about */}
-        <div className="p-4 md:p-6 flex flex-col gap-6">
-          {/* hero */}
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-2 mb-6">
-            <div className="flex gap-1 flex-col order-2 md:order-1">
-              <h1 className="font-bold font-sans text-3xl md:text-4xl lg:text-5xl text-foreground">Hi, I&apos;m Shree <span></span></h1>
-              <p className="font-sans text-sm md:text-base max-w-full md:max-w-125 text-foreground">I build clean, scalable web apps focused on performance, design, and real-world usability simple, fast, reliable.</p>
-            </div>
+        <div className="relative border-t border-border">
 
-            <div className="group order-1 md:order-2 self-center md:self-auto border border-dashed border-input hover:border-ring/80 p-1 relative rounded-full hover:rounded-none transition-transform duration-300">
-              {/* Plus corners */}
-              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                {/* Top Left */}
-                <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-ring">
-                  <Plus />
+          
+          <div className="relative z-10 w-full flex flex-col">
+            {/* profile grid block */}
+            <div className="flex items-end border-b border-border">
+              
+              {/* Left: Avatar Box */}
+              <div className="shrink-0 flex items-center justify-center border-r border-border p-4 md:p-0">
+                <Image
+                  src={isNightImage ? "/profile-night.jpg" : "/profile-day.jpg"}
+                  alt="Shree's Avatar"
+                  width={160}
+                  height={160}
+                  onClick={toggleImage}
+                  className="w-[110px] h-[110px] md:w-[160px] md:h-[160px] rounded-full border border-foreground/10 bg-background object-cover aspect-square cursor-pointer"
+                />
+              </div>
+              
+              {/* Right: Name + Subtitle as bordered rows */}
+              <div className="flex flex-col flex-1 border-t border-border">
+                <div className="flex items-center px-4 py-4 border-b border-border">
+                  <h1 className="font-bold text-[28px] md:text-[36px] text-foreground tracking-tight leading-none" style={{ fontFamily: 'var(--font-sora)' }}>Shree Jaybhay</h1>
+                  <BadgeCheck className="w-[22px] h-[22px] fill-foreground text-background ml-2.5" />
                 </div>
-
-                {/* Top Right */}
-                <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-ring">
-                  <Plus />
-                </div>
-
-                {/* Bottom Left */}
-                <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-ring">
-                  <Plus />
-                </div>
-
-                {/* Bottom Right */}
-                <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-ring">
-                  <Plus />
+                <div className="flex items-center px-4 py-3">
+                  <TextLoop
+                    className="font-mono text-[13px] md:text-[14px] text-muted-foreground"
+                    interval={4}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 80,
+                      damping: 20,
+                      mass: 1.5,
+                    }}
+                    variants={{
+                      initial: { y: -16, opacity: 0, filter: 'blur(6px)' },
+                      animate: { y: 0, opacity: 1, filter: 'blur(0px)' },
+                      exit:    { y: 16,  opacity: 0, filter: 'blur(6px)' },
+                    }}
+                  >
+                    <TextShimmer duration={2.5} spread={1.5}>Full-Stack Developer.</TextShimmer>
+                    <TextShimmer duration={2.5} spread={1.5}>Building things for the web.</TextShimmer>
+                    <TextShimmer duration={2.5} spread={1.5}>Next.js · React · Node.js</TextShimmer>
+                    <TextShimmer duration={2.5} spread={1.5}>Clean code. Thoughtful UI.</TextShimmer>
+                  </TextLoop>
                 </div>
               </div>
-
-              <Image
-                src="https://avatars.githubusercontent.com/u/155870646?s=400&u=870734441b2d80a665a2f734245ba815c0a5b871&v=4"
-                alt="Shree's Avatar"
-                width={80}
-                height={80}
-                className="
-                     rounded-full
-                     grayscale
-                     md:w-27.5 md:h-27.5
-                     transition-all duration-300 ease-in-out
-                     md:hover:grayscale-0"
-              />
+              
             </div>
-          </div>
 
-          <div>
-            <h1 className="text-xl font-bold font-sans text-[--foreground] mb-2">About</h1>
-            <p className="dark:text-[#A3A3A3] text-[#737373] text-sm">I&apos;m a developer who enjoys turning ideas into well-crafted digital products.
-              I care about clean code, thoughtful UI, and systems that scale without complexity.
-
-              Most of my work revolves around full-stack web development — from designing APIs to building smooth user interfaces. I prefer minimal solutions that solve real problems.</p>
+            {/* About */}
+            <div className="p-5 md:p-6 bg-foreground/[0.01]">
+              <p className="text-muted-foreground/80 text-[13px] md:text-[15px] leading-relaxed max-w-2xl font-sans">
+                I build clean, scalable web apps focused on performance, design, and real-world usability. I enjoy turning ideas into well-crafted digital products, caring deeply about clean code, thoughtful UI, and systems that scale without complexity.
+              </p>
+            </div>
           </div>
         </div>
         <div className="striped-divider" />
@@ -147,6 +172,7 @@ export default function Home() {
                 src="https://i.postimg.cc/wTjyRvXn/imgi-449-coding-logo-design-template-free-vector.jpg"
                 alt="IIIT Vadodara Logo"
                 fill
+                unoptimized
                 sizes="47px"
                 className="scale-150 object-contain"
               />
@@ -186,9 +212,10 @@ export default function Home() {
           <div className="flex gap-2 items-start mb-3">
             <Link href="https://craftlab.ai/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 shrink-0">
               <Image
-                src="https://i.postimg.cc/dVMqWcQF/craftlabai-logo.jpg"
+                src="https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/zhc78hzqs3rddprayt68"
                 alt="Craftlab Logo"
                 fill
+                unoptimized
                 sizes="47px"
                 className="object-contain bg-white"
               />
@@ -235,6 +262,7 @@ export default function Home() {
                 src="https://i.postimg.cc/C1bP8Jgx/original-cd940b45bbed325d172547e4181e59b2.webp"
                 alt="Freelance Logo"
                 fill
+                unoptimized
                 sizes="47px"
                 className="object-contain scale-125 bg-white"
               />
@@ -282,7 +310,7 @@ export default function Home() {
               return (
                 <div
                   key={item.name}
-                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 text-sm text-neutral-700 dark:text-neutral-300 transition-all duration-200 hover:scale-[1.02] hover:bg-neutral-100 dark:hover:bg-neutral-800/60 hover:border-neutral-300 dark:hover:border-neutral-700"
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/50 dark:bg-neutral-900/40 text-sm text-neutral-700 dark:text-neutral-300 transition-all duration-200 hover:bg-neutral-100 dark:hover:bg-neutral-800/60 hover:border-neutral-300 dark:hover:border-neutral-700 cursor-default"
                 >
                   {Icon && <Icon className={`w-4.5 h-4.5 ${item.colorClass || ""}`} />}
                   <span className="font-sans font-medium">{item.name}</span>
