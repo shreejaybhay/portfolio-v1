@@ -153,3 +153,12 @@ html, body {
   );
 }
 
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+.dark ::selection {
+  background-color: #fff;
+  color: #000;
+}
