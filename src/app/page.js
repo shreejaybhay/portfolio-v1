@@ -15,6 +15,7 @@ import { motion } from "framer-motion";
 import ProjectCard, { projectsData } from "@/components/project-card";
 import { StackIcons } from "@/components/stack-icons";
 import GithubCalendar from "@/components/github-calendar";
+import { Testimonials02 } from "@/components/testimonials";
 
 const skillsItems = [
   { name: "JavaScript", icon: "javascript", colorClass: "text-[#F7DF1E]" },
@@ -325,6 +326,10 @@ export default function Home() {
         <div className="p-4 md:p-6">
           <GithubCalendar />
         </div>
+
+        <div className="striped-divider" />
+
+        <Testimonials02 />
 
         <div className="striped-divider" />
 
