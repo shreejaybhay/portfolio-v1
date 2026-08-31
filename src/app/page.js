@@ -68,15 +68,26 @@ export default function Home() {
             <div className="flex items-end border-b border-border">
               
               {/* Left: Avatar Box */}
-              <div className="shrink-0 flex items-center justify-center border-r border-border p-4 md:p-0">
-                <Image
-                  src={isNightImage ? "/profile-night.jpg" : "/profile-day.jpg"}
-                  alt="Shree's Avatar"
-                  width={160}
-                  height={160}
-                  onClick={toggleImage}
-                  className="w-[110px] h-[110px] md:w-[160px] md:h-[160px] rounded-full border border-foreground/10 bg-background object-cover aspect-square cursor-pointer"
-                />
+              <div 
+                className="shrink-0 flex items-center justify-center border-r border-border p-4 md:p-0 cursor-pointer group"
+                onClick={toggleImage}
+              >
+                <div className="relative w-[110px] h-[110px] md:w-[160px] md:h-[160px]">
+                  <Image
+                    src="/profile-day.jpg"
+                    alt="Shree's Avatar Day"
+                    fill
+                    sizes="(max-width: 768px) 110px, 160px"
+                    className={`rounded-full border border-foreground/10 bg-background object-cover aspect-square transition-opacity duration-500 ease-in-out ${isNightImage ? 'opacity-0' : 'opacity-100'}`}
+                  />
+                  <Image
+                    src="/profile-night.jpg"
+                    alt="Shree's Avatar Night"
+                    fill
+                    sizes="(max-width: 768px) 110px, 160px"
+                    className={`rounded-full border border-foreground/10 bg-background object-cover aspect-square transition-opacity duration-500 ease-in-out ${isNightImage ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                </div>
               </div>
               
               {/* Right: Name + Subtitle as bordered rows */}
