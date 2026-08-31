@@ -59,7 +59,22 @@ export function TestimonialAvatar({ children }) {
 }
 
 export function TestimonialAvatarImg({ src, alt }) {
-  return <img src={src} alt={alt} className="aspect-square h-full w-full object-cover" loading="lazy" />;
+  const [error, setError] = useState(false);
+
+  if (error || !src) {
+    const fallbackSrc = `https://ui-avatars.com/api/?name=${encodeURIComponent(alt)}&background=random`;
+    return <img src={fallbackSrc} alt={alt} className="aspect-square h-full w-full object-cover" loading="lazy" />;
+  }
+
+  return (
+    <img 
+      src={src} 
+      alt={alt} 
+      className="aspect-square h-full w-full object-cover" 
+      loading="lazy" 
+      onError={() => setError(true)}
+    />
+  );
 }
 
 export function TestimonialAvatarRing() {
@@ -77,7 +92,7 @@ export function TestimonialAuthorTagline({ children }) {
 
 // --- Main Components ---
 
-export function TestimonialList({ direction, data }) {
+export function TestimonialList({ direction, data, isOneLine }) {
   return (
     <Marquee>
       <MarqueeFade side="left" />
@@ -96,11 +111,11 @@ export function TestimonialList({ direction, data }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TestimonialItem {...item} />
+                <TestimonialItem {...item} isOneLine={isOneLine} />
               </a>
             ) : (
               <div className="block h-full transition-[background-color] hover:bg-muted/50">
-                <TestimonialItem {...item} />
+                <TestimonialItem {...item} isOneLine={isOneLine} />
               </div>
             )}
           </MarqueeItem>
@@ -115,11 +130,12 @@ function TestimonialItem({
   authorName,
   authorTagline,
   quote,
+  isOneLine,
 }) {
   return (
     <Testimonial>
-      <TestimonialQuote className="overflow-hidden text-ellipsis line-clamp-3">
-        <p>{quote}</p>
+      <TestimonialQuote className={`overflow-hidden text-ellipsis ${isOneLine ? "whitespace-nowrap" : "line-clamp-3"}`}>
+        <p className={isOneLine ? "truncate" : ""}>{quote}</p>
       </TestimonialQuote>
 
       <TestimonialAuthor>
@@ -145,8 +161,16 @@ export function Testimonials02() {
     fetch("/api/jammify-ratings")
       .then((res) => res.json())
       .then((data) => {
-        // Filter out empty comments
-        const valid = data.ratings.filter((r) => r.comment && r.comment.trim() !== "");
+        // Filter out empty comments and 1-word comments
+        const valid = data.ratings.filter((r) => {
+          // Only keep 4 and 5 star ratings
+          if (r.rating < 4) return false;
+          
+          const text = r.comment ? r.comment.trim() : "";
+          if (!text) return false;
+          // Must have at least 2 words
+          return text.split(/\s+/).length > 1;
+        });
         
         const formatted = valid.map((r) => ({
           authorAvatar: r.user.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(r.user.name)}&background=random`,
@@ -223,7 +247,7 @@ export function Testimonials02() {
             <TestimonialList data={data1} />
           </div>
           <div className="relative">
-            <TestimonialList data={data2} direction="right" />
+            <TestimonialList data={data2} direction="right" isOneLine={true} />
           </div>
         </div>
       </div>
