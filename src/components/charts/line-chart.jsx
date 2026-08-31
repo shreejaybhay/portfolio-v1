@@ -12,8 +12,9 @@ export default function LineChart({ data, margin, children, className }) {
             dataKey="date" 
             tickFormatter={(val) => {
               const date = new Date(val);
-              return `${date.getDate()}/${date.getMonth()+1}`;
+              return date.getDate();
             }}
+            minTickGap={30}
             stroke="#888888" 
             fontSize={12} 
             tickLine={false} 
@@ -25,6 +26,8 @@ export default function LineChart({ data, margin, children, className }) {
             tickLine={false}
             axisLine={false}
             tickFormatter={(value) => `${value}`}
+            width={40}
+            tickMargin={0}
           />
           {children}
         </RechartsLineChart>
