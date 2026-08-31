@@ -17,19 +17,19 @@ import { StackIcons } from "@/components/stack-icons";
 import GithubCalendar from "@/components/github-calendar";
 
 const skillsItems = [
-  { name: "JavaScript", icon: "javascript", colorClass: "text-foreground" },
-  { name: "TypeScript", icon: "typescript", colorClass: "text-foreground" },
-  { name: "React", icon: "react", colorClass: "text-foreground" },
+  { name: "JavaScript", icon: "javascript", colorClass: "text-[#F7DF1E]" },
+  { name: "TypeScript", icon: "typescript", colorClass: "text-[#3178C6]" },
+  { name: "React", icon: "react", colorClass: "text-[#61DAFB]" },
   { name: "Next.js", icon: "nextdotjs", colorClass: "text-foreground" },
-  { name: "Node.js", icon: "node", colorClass: "text-foreground" },
+  { name: "Node.js", icon: "node", colorClass: "text-[#339939]" },
   { name: "Express.js", icon: "express", colorClass: "text-foreground" },
-  { name: "MongoDB", icon: "mongodb", colorClass: "text-foreground" },
-  { name: "Tailwind CSS", icon: "tailwind", colorClass: "text-foreground" },
+  { name: "MongoDB", icon: "mongodb", colorClass: "text-[#47A248]" },
+  { name: "Tailwind CSS", icon: "tailwind", colorClass: "text-[#06B6D4]" },
   { name: "Shadcn UI", icon: "shadcnui", colorClass: "text-foreground" },
-  { name: "Git", icon: "git", colorClass: "text-foreground" },
+  { name: "Git", icon: "git", colorClass: "text-[#F05032]" },
   { name: "GitHub", icon: "github", colorClass: "text-foreground" },
-  { name: "Figma", icon: "figma", colorClass: "text-foreground" },
-  { name: "Postman", icon: "postman", colorClass: "text-foreground" },
+  { name: "Figma", icon: "figma", colorClass: "text-[#F24E1E]" },
+  { name: "Postman", icon: "postman", colorClass: "text-[#FF6C37]" },
 ];
 
 export default function Home() {
@@ -304,7 +304,7 @@ export default function Home() {
 
         <div className="p-4 md:p-6">
           <h1 className="text-xl font-bold font-sans text-[--foreground] mb-4">Skills</h1>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="flex flex-wrap justify-center gap-2.5">
             {skillsItems.map((item) => {
               const Icon = StackIcons[item.icon];
               return (
