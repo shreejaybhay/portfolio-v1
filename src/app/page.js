@@ -16,6 +16,7 @@ import ProjectCard, { projectsData } from "@/components/project-card";
 import { StackIcons } from "@/components/stack-icons";
 import GithubCalendar from "@/components/github-calendar";
 import { Testimonials02 } from "@/components/testimonials";
+import { Metrics01 } from "@/components/analytics";
 
 const skillsItems = [
   { name: "JavaScript", icon: "javascript", colorClass: "text-[#F7DF1E]" },
@@ -341,6 +342,10 @@ export default function Home() {
         <div className="striped-divider" />
 
         <Testimonials02 />
+        
+        <div className="striped-divider" />
+
+        <Metrics01 />
 
         <div className="striped-divider" />
 
