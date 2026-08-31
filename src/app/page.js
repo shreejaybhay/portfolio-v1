@@ -304,7 +304,7 @@ export default function Home() {
 
         <div className="p-4 md:p-6">
           <h1 className="text-xl font-bold font-sans text-[--foreground] mb-4">Skills</h1>
-          <div className="flex flex-wrap justify-center gap-2.5">
+          <div className="flex flex-wrap md:justify-center gap-2.5">
             {skillsItems.map((item) => {
               const Icon = StackIcons[item.icon];
               return (
