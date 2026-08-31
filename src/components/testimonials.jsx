@@ -8,12 +8,13 @@ export function Marquee({ children, className = "" }) {
   return <div className={`relative flex w-full overflow-hidden ${className}`}>{children}</div>;
 }
 
-export function MarqueeContent({ children, direction = "left" }) {
+export function MarqueeContent({ children, direction = "left", duration = "300s" }) {
   return (
     <div
       className="flex w-max min-w-full shrink-0 items-stretch justify-around gap-0 animate-marquee"
       style={{
         animationDirection: direction === "right" ? "reverse" : "normal",
+        "--duration": duration,
       }}
     >
       {children}
@@ -93,12 +94,14 @@ export function TestimonialAuthorTagline({ children }) {
 // --- Main Components ---
 
 export function TestimonialList({ direction, data, isOneLine }) {
+  const duration = `${data.length * 15}s`; // 15 seconds per card
+
   return (
     <Marquee>
       <MarqueeFade side="left" />
       <MarqueeFade side="right" />
 
-      <MarqueeContent direction={direction}>
+      <MarqueeContent direction={direction} duration={duration}>
         {data.map((item, idx) => (
           <MarqueeItem
             key={`${item.authorName}-${idx}`}
@@ -180,11 +183,17 @@ export function Testimonials02() {
           url: "#"
         }));
 
-        // Sort by length so longer reviews are on top, shorter on bottom
-        const sortedByLength = [...formatted].sort((a, b) => b.quote.length - a.quote.length);
+        // Strictly put long reviews (> 60 chars) on top, short on bottom
+        const longReviews = formatted.filter(r => r.quote.length > 60);
+        const shortReviews = formatted.filter(r => r.quote.length <= 60);
 
-        const mid = Math.ceil(sortedByLength.length / 2);
-        if (sortedByLength.length > 0) {
+        if (longReviews.length > 0 && shortReviews.length > 0) {
+          setData1(longReviews);
+          setData2(shortReviews);
+        } else {
+          // Fallback if one category is empty
+          const sortedByLength = [...formatted].sort((a, b) => b.quote.length - a.quote.length);
+          const mid = Math.ceil(sortedByLength.length / 2);
           setData1(sortedByLength.slice(0, mid));
           setData2(sortedByLength.slice(mid));
         }
@@ -236,7 +245,7 @@ export function Testimonials02() {
               100% { transform: translateX(-50%); }
             }
             .animate-marquee {
-              animation: marquee 300s linear infinite;
+              animation: marquee var(--duration, 300s) linear infinite;
             }
             .animate-marquee:hover {
               animation-play-state: paused;
