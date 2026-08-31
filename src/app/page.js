@@ -212,7 +212,7 @@ export default function Home() {
           <div className="flex gap-2 items-start mb-3">
             <Link href="https://craftlab.ai/" target="_blank" rel="noopener noreferrer" className="relative w-11.75 h-11.75 overflow-hidden border border-foreground/50 shrink-0">
               <Image
-                src="https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/zhc78hzqs3rddprayt68"
+                src="https://pbs.twimg.com/profile_images/1795012349000089600/l34lFuR7_400x400.jpg"
                 alt="Craftlab Logo"
                 fill
                 unoptimized
